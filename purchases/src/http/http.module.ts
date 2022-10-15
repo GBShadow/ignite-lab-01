@@ -7,6 +7,7 @@ import path from 'node:path';
 import { CustomersService } from 'services/customers.service';
 import { ProductsService } from 'services/products.service';
 import { PurchasesService } from 'services/purchases.service';
+import { CustomersResolver } from './graphql/resolvers/customers.resolver';
 import { ProductsResolver } from './graphql/resolvers/products.resolver';
 import { PurchasesResolver } from './graphql/resolvers/purchases.resolver';
 
@@ -20,9 +21,13 @@ import { PurchasesResolver } from './graphql/resolvers/purchases.resolver';
     }),
   ],
   providers: [
+    // Resolvers
     ProductsResolver,
-    ProductsService,
+    CustomersResolver,
     PurchasesResolver,
+
+    // Services
+    ProductsService,
     PurchasesService,
     CustomersService,
   ],
